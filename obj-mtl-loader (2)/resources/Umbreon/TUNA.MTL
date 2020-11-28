@@ -7,7 +7,7 @@ newmtl tna_body
   Kd 0 0 0
   Ks 0 0 0
   illum 2
-  map_Kd images\tuna.tif
+  map_Kd tuna.tif
 
 newmtl tna_mouth
   Ka 0 0 0
@@ -20,4 +20,4 @@ newmtl tna_eye
   Kd 0 0 0
   Ks 0 0 0
   illum 2
-  map_Kd images\eye_fsh.TIF
+  map_Kd eye_fsh.TIF

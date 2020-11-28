@@ -10,6 +10,7 @@
             background-color: #bfd1e5;
             color: #61443e;
         }
+
         a {
             color: #a06851;
         }
@@ -20,7 +21,7 @@
 <div id="container"></div>
 <div id="info">
     <a href="https://threejs.org" target="_blank" rel="noopener">three.js</a>
-    - webgl terrain demo<br />
+    - webgl terrain demo<br/>
     (left click: forward, right click: backward)
 </div>
 
@@ -30,18 +31,18 @@
 
     import Stats from '../n/three.js-master/examples/jsm/libs/stats.module.js';
 
-    import { FirstPersonControls } from '../n/three.js-master/examples/jsm/controls/FirstPersonControls.js';
-    import { ImprovedNoise } from '../n/three.js-master/examples/jsm/math/ImprovedNoise.js';
-    import { OBJLoader} from "../n/three.js-master/examples/jsm/loaders/OBJLoader.js";
+    import {FirstPersonControls} from '../n/three.js-master/examples/jsm/controls/FirstPersonControls.js';
+    import {ImprovedNoise} from '../n/three.js-master/examples/jsm/math/ImprovedNoise.js';
+    import {OBJLoader} from "../n/three.js-master/examples/jsm/loaders/OBJLoader.js";
     import {MTLLoader} from "../n/three.js-master/examples/jsm/loaders/MTLLoader.js";
 
     let container, stats;
 
     let camera, controls, scene, renderer;
-
+    var obj1;
     let mesh, texture;
 
-    let object1;
+    // let object;
 
     let mtlLoader, loader;
 
@@ -53,7 +54,7 @@
 
     init();
     addDirectionalLight();
-    loadMTLLoader('TUNA',0,0,0,1,1,1,0,0,0)
+    loadMTLLoader('ladybug', 0, 0, 0, 1, 1, 1, 0, 0, 0)
 
     animate();
 
@@ -68,6 +69,7 @@
         scene.add(light2);
         scene.add(light3);
     }
+
     /**
      * Material 파일을 로드하는 함수
      *
@@ -80,7 +82,7 @@
         mtlLoader.setPath('./resources/Umbreon/');
 
         // 로드할 Material 파일 명을 입력합니다.
-        mtlLoader.load(str+'.mtl', function (materials) {
+        mtlLoader.load(str + '.mtl', function (materials) {
             // 로드 완료되었을때 호출하는 함수
             materials.preload();
 
@@ -93,9 +95,8 @@
             console.error('MTLLoader 로드 중 오류가 발생하였습니다.', error);
             alert('MTLLoader 로드 중 오류가 발생하였습니다.');
         });
-        animate();
+        // animate();
     }
-
 
 
     /**
@@ -135,7 +136,9 @@
             object.rotation.x = xr;
             object.rotation.y = yr;
             object.rotation.z = zr;
+            obj1 = object;
             scene.add(object);
+            move(object);
         }, function (xhr) {
             // 모델이 로드되는 동안 호출되는 함수
             console.log('OBJLoader: ', xhr.loaded / xhr.total * 100, '% loaded');
@@ -144,7 +147,9 @@
             console.log('ㅠㅠ');
         });
 
+
     }
+
     // function loadMTLLoader(str,) {
     //     mtlLoader = new MTLLoader();
     //
@@ -205,20 +210,19 @@
     // }
     function init() {
 
-        container = document.getElementById( 'container' );
+        container = document.getElementById('container');
 
-        camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 20000 );
+        camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 20000);
 
         scene = new THREE.Scene();
-        scene.background = new THREE.Color( 0xbfd1e5 );
+        scene.background = new THREE.Color(0xbfd1e5);
 
 
-
-        camera.position.set(3,3,3);
+        camera.position.set(3, 3, 3);
 
         let axes = new THREE.AxesHelper(10);
         scene.add(axes);
-        var geometry = new THREE.CylinderGeometry(5000,5000,20000,32,1,true)
+        var geometry = new THREE.CylinderGeometry(5000, 5000, 20000, 32, 1, true)
         var materialOuter = new THREE.MeshBasicMaterial({
             map: new THREE.TextureLoader().load("./resources/Umbreon/GlobeInner_DM.png")
         });
@@ -246,20 +250,20 @@
             scene.background = texture;
         }
         renderer = new THREE.WebGLRenderer();
-        renderer.setPixelRatio( window.devicePixelRatio );
-        renderer.setSize( window.innerWidth, window.innerHeight );
-        container.appendChild( renderer.domElement );
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        container.appendChild(renderer.domElement);
 
-        controls = new FirstPersonControls( camera, renderer.domElement );
+        controls = new FirstPersonControls(camera, renderer.domElement);
         controls.movementSpeed = 50;
         controls.lookSpeed = 0.1;
 
         stats = new Stats();
-        container.appendChild( stats.dom );
+        container.appendChild(stats.dom);
 
         //
 
-        window.addEventListener( 'resize', onWindowResize, false );
+        window.addEventListener('resize', onWindowResize, false);
 
     }
 
@@ -268,22 +272,18 @@
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
 
-        renderer.setSize( window.innerWidth, window.innerHeight );
+        renderer.setSize(window.innerWidth, window.innerHeight);
 
         controls.handleResize();
 
     }
 
 
-
-
-
     //
 
     function animate() {
 
-
-        requestAnimationFrame( animate );
+        requestAnimationFrame(animate);
 
         render();
         stats.update();
@@ -291,9 +291,8 @@
     }
 
     function render() {
-        // object1.position.x += 0.01
-        controls.update( clock.getDelta() );
-        renderer.render( scene, camera );
+        controls.update(clock.getDelta());
+        renderer.render(scene, camera);
 
     }
 
