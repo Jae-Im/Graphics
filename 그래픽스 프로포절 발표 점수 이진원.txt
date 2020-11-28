@@ -1,0 +1,16 @@
+
+proposal originality	Technical Difficulty	Presentation Quality 순으로
+
+1조 2	1	2
+2조 2	2	2
+3조 1	1	1
+4조 2	2	2
+5조 1	2	2
+6조 1	1	2
+7조 1	1	2
+8조 2	3	2
+9조 2	2	2
+10조 1	1	2
+11조 2	3	2
+12조 1	1	2
+13조 -	-	-
