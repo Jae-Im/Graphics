@@ -43,7 +43,7 @@
 
     let object1;
 
-    let mtlLoader, objLoader;
+    let mtlLoader, loader;
 
     const worldWidth = 256, worldDepth = 256,
         worldHalfWidth = worldWidth / 2, worldHalfDepth = worldDepth / 2;
@@ -53,7 +53,8 @@
 
     init();
     addDirectionalLight();
-    loadMTLLoader();
+    loadMTLLoader('TUNA',0,0,0,1,1,1,0,0,0)
+
     animate();
 
     function addDirectionalLight() {
@@ -67,19 +68,23 @@
         scene.add(light2);
         scene.add(light3);
     }
-    function loadMTLLoader() {
+    /**
+     * Material 파일을 로드하는 함수
+     *
+     * @method loadMTLLoader
+     */
+    function loadMTLLoader(str, xp, yp, zp, xs, ys, zs, xr, yr, zr) {
         mtlLoader = new MTLLoader();
 
         // MTLLoader Material 파일을 사용할 전역 경로를 설정합니다.
         mtlLoader.setPath('./resources/Umbreon/');
 
-
         // 로드할 Material 파일 명을 입력합니다.
-        mtlLoader.load('ladybug.mtl', function (materials) {
+        mtlLoader.load(str+'.mtl', function (materials) {
             // 로드 완료되었을때 호출하는 함수
             materials.preload();
 
-            loadOBJLoader(materials);
+            loadOBJLoader(materials, str, xp, yp, zp, xs, ys, zs, xr, yr, zr);
         }, function (xhr) {
             // 로드되는 동안 호출되는 함수
             console.log('MTLLoader: ', xhr.loaded / xhr.total * 100, '% loaded');
@@ -88,43 +93,116 @@
             console.error('MTLLoader 로드 중 오류가 발생하였습니다.', error);
             alert('MTLLoader 로드 중 오류가 발생하였습니다.');
         });
+        animate();
     }
+
+
 
     /**
      * .obj 파일의 모델을 로드하는 함수
      *
      * @method loadObjLoader
      * @param {Object} materials MTLLoader에서 로드한 Materials 값
+     * @param str
+     * @param xp
+     * @param yp
+     * @param zp
+     * @param xs
+     * @param ys
+     * @param zs
+     * @param xr
+     * @param yr
+     * @param zr
      */
-    function loadOBJLoader(materials) {
-        objLoader = new OBJLoader();
+    function loadOBJLoader(materials, str, xp, yp, zp, xs, ys, zs, xr, yr, zr) {
+        loader = new OBJLoader();
 
         // MTLLoader에서 로드한 materials 파일을 설정합니다.
-        objLoader.setMaterials(materials);
+        loader.setMaterials(materials);
 
         // OBJLoader OBJ 파일을 사용할 전역 경로를 설정합니다.
-        objLoader.setPath('./resources/Umbreon/');
-
+        loader.setPath('./resources/Umbreon/');
 
         // 로드할 OBJ 파일 명을 입력합니다.
-        objLoader.load('ladybug.obj', function (object) {
+        loader.load(str + '.obj', function (object) {
             // 모델 로드가 완료되었을때 호출되는 함수
-            object.position.x = 3;
-            object.position.y = 0;
-            object.position.z = 0;
-            object.scale.x = 5;
-            object.scale.y = 5;
-            object.scale.z = 5;
-            object1 = object;
-            scene.add(object1);
+            object.position.x = xp;
+            object.position.y = yp;
+            object.position.z = zp;
+            object.scale.x = xs;
+            object.scale.y = ys;
+            object.scale.z = zs;
+            object.rotation.x = xr;
+            object.rotation.y = yr;
+            object.rotation.z = zr;
+            scene.add(object);
         }, function (xhr) {
             // 모델이 로드되는 동안 호출되는 함수
             console.log('OBJLoader: ', xhr.loaded / xhr.total * 100, '% loaded');
         }, function (error) {
             // 모델 로드가 실패했을 때 호출하는 함수
-            alert('모델을 로드 중 오류가 발생하였습니다.');
+            console.log('ㅠㅠ');
         });
+
     }
+    // function loadMTLLoader(str,) {
+    //     mtlLoader = new MTLLoader();
+    //
+    //     // MTLLoader Material 파일을 사용할 전역 경로를 설정합니다.
+    //     mtlLoader.setPath('./resources/Umbreon/');
+    //
+    //
+    //     // 로드할 Material 파일 명을 입력합니다.
+    //     mtlLoader.load('./spongebob-obj/spongebob.mtl', function (materials) {
+    //         // 로드 완료되었을때 호출하는 함수
+    //         materials.preload();
+    //
+    //         loadOBJLoader(materials);
+    //     }, function (xhr) {
+    //         // 로드되는 동안 호출되는 함수
+    //         console.log('MTLLoader: ', xhr.loaded / xhr.total * 100, '% loaded');
+    //     }, function (error) {
+    //         // 로드가 실패했을때 호출하는 함수
+    //         console.error('MTLLoader 로드 중 오류가 발생하였습니다.', error);
+    //         alert('MTLLoader 로드 중 오류가 발생하였습니다.');
+    //     });
+    // }
+    //
+    // /**
+    //  * .obj 파일의 모델을 로드하는 함수
+    //  *
+    //  * @method loadObjLoader
+    //  * @param {Object} materials MTLLoader에서 로드한 Materials 값
+    //  */
+    // function loadOBJLoader(materials) {
+    //     objLoader = new OBJLoader();
+    //
+    //     // MTLLoader에서 로드한 materials 파일을 설정합니다.
+    //     objLoader.setMaterials(materials);
+    //
+    //     // OBJLoader OBJ 파일을 사용할 전역 경로를 설정합니다.
+    //     objLoader.setPath('./resources/Umbreon/');
+    //
+    //
+    //     // 로드할 OBJ 파일 명을 입력합니다.
+    //     objLoader.load('./spongebob-obj/spongebob.obj', function (object) {
+    //         // 모델 로드가 완료되었을때 호출되는 함수
+    //         object.position.x = 3;
+    //         object.position.y = 0;
+    //         object.position.z = 0;
+    //         object.scale.x = 5;
+    //         object.scale.y = 5;
+    //         object.scale.z = 5;
+    //         object1 = object;
+    //         scene.add(object1);
+    //     }, function (xhr) {
+    //         // 모델이 로드되는 동안 호출되는 함수
+    //         console.log('OBJLoader: ', xhr.loaded / xhr.total * 100, '% loaded');
+    //     }, function (error) {
+    //         // 모델 로드가 실패했을 때 호출하는 함수
+    //         alert('모델을 로드 중 오류가 발생하였습니다.');
+    //     });
+    // }
     function init() {
 
         container = document.getElementById( 'container' );
@@ -134,35 +212,46 @@
         scene = new THREE.Scene();
         scene.background = new THREE.Color( 0xbfd1e5 );
 
+
+
+        camera.position.set(3,3,3);
+
+        let axes = new THREE.AxesHelper(10);
+        scene.add(axes);
+        var geometry = new THREE.CylinderGeometry(5000,5000,20000,32,1,true)
+        var materialOuter = new THREE.MeshBasicMaterial({
+            map: new THREE.TextureLoader().load("./resources/Umbreon/GlobeInner_DM.png")
+        });
+        var materialInner = new THREE.MeshBasicMaterial({
+            map: new THREE.TextureLoader().load("./resources/Umbreon/GlobeInner_DM.png"),
+            side: THREE.BackSide
+        });
+
+        var meshOuter = new THREE.Mesh(geometry, materialOuter);
+        var meshInner = new THREE.Mesh(geometry, materialInner);
+        meshOuter.add(meshInner);
+        scene.add(meshOuter);
         {
             const loader = new THREE.CubeTextureLoader();
             const texture = loader.load([
+                './resources/Umbreon/GlobeInner_DM.png',
+                './resources/Umbreon/GlobeInner_DM.png',
+
                 './resources/Umbreon/sea.jpg',
-                './resources/Umbreon/sea.jpg',
-                './resources/Umbreon/sea.jpg',
-                './resources/Umbreon/sea.jpg',
-                './resources/Umbreon/sea.jpg',
-                './resources/Umbreon/sea.jpg'
+                './resources/Umbreon/bottom.png',
+                './resources/Umbreon/GlobeInner_DM.png',
+                './resources/Umbreon/GlobeInner_DM.png'
 
             ]);
             scene.background = texture;
         }
-
-        camera.position.set(3,3,3);
-        const geometry = new THREE.CylinderGeometry( 50, 50, 100, 32 );
-        const material = new THREE.MeshBasicMaterial( {color: 0xffff00} );
-        const cylinder = new THREE.Mesh( geometry, material );
-        scene.add( cylinder );
-        let axes = new THREE.AxesHelper(10);
-        scene.add(axes);
-
         renderer = new THREE.WebGLRenderer();
         renderer.setPixelRatio( window.devicePixelRatio );
         renderer.setSize( window.innerWidth, window.innerHeight );
         container.appendChild( renderer.domElement );
 
         controls = new FirstPersonControls( camera, renderer.domElement );
-        controls.movementSpeed = 20;
+        controls.movementSpeed = 50;
         controls.lookSpeed = 0.1;
 
         stats = new Stats();
