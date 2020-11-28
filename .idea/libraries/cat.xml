@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="cat">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/obj-loader-cat/cat.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
