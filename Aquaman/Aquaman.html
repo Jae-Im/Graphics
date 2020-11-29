@@ -123,101 +123,123 @@
 
         //add object with texture(mtl)
         loadMTLLoader('downtownbikinibottom', 1, -1500, 0, 1.5, 1.5, 1.5, 0, 0, 0);
-        for(var i=0; i<7; i++)
+        for(var i=0; i<12; i++)
         {
-            var rd = Math.random()*300+100;
-            loadMTLLoader('13002_American_Flagfish_v1_l3', rd+(4*i), rd-i, rd*i, 3, 3, 3, -1.5708, 0, 0);
+            var rd = Math.random()*500-99;
+            var rx = Math.random()*700+5;
+            loadMTLLoader('13002_American_Flagfish_v1_l3', rd+(12*i), rx-(4*i), rd+(2*i), 8, 8, 8, -1.5708, 0, 0);
+        }
+
+        for(var i=0; i<12; i++)
+        {
+            var rd = Math.random()*400-121;
+            var rx = Math.random()*320+10;
+            loadMTLLoader('12988_Electric_Yellow_cichlid_v1_l3', rd+(12*i), rx-(4*i), rd+(2*i), 8, 8, 8, -1.5708, 0, 0);
         }
 
         for(var i=0; i<7; i++)
         {
-            var rd = Math.random()*500+200;
-            loadMTLLoader('12988_Electric_Yellow_cichlid_v1_l3', rd+(2*i), rd-i, rd*i, 3, 3, 3, -1.5708, 0, 0);
-        }
-
-        for(var i=0; i<7; i++)
-        {
-            var rd = Math.random()*300+200;
-            loadMTLLoader('TUNA', rd+i, rd-i, rd*i, 3, 3, 3, -1.5708, 0, 0);
+            var rd = Math.random()*470-75;
+            var rx = Math.random()*400-300;
+            loadMTLLoader('TUNA', rd+(15*i), rx-(4*i), rd+(9*i), 5, 5, 3, -1.5708, 0, 0);
         }
 
         // sea turtle
         for(var i=0; i<7; i++)
         {
 
-            var rd = Math.random()*300+600;
-            loadMTLLoader('20446_Sea_Turtle_v1 Textured', rd+(0.5*i), rd-(2*i), rd*i, 0.4, 0.4, 0.4, -1.5708, 0, 0);
+            var rd = Math.random()*380-50;
+            var rx = Math.random()*400-150;
+            loadMTLLoader('20446_Sea_Turtle_v1 Textured', rd+(9*i), rx-(3*i), rd-(2*i), 2, 2, 2, -1.5708, 0, 0);
         }
 
-        for(var i=0; i<7; i++)
+        for(var i=0; i<10; i++)
         {
 
-            var rd = Math.random()*300+600;
-            loadMTLLoader('10012_crab_v2_iterations-1', rd+(2*i), rd-(2*i), rd*i, 1, 1, 1, -1.5708, 0, 0);
+            var rd = Math.random()*450-300;
+            var rx = Math.random()*-10-1485;
+            loadMTLLoader('10012_crab_v2_iterations-1', rd+(9*i), rd-(4*i), rx-(5*i), 1, 1, 1, -1.5708, 0, 0);
         }
 
-        for(var i=0; i<7; i++)
+        /*
+        for(var i=0; i<3; i++)
+         {
+
+           var rd = Math.random()*300+600;
+           loadMTLLoader('bamboo shark', rd+(2*i), rd-(2*i), rd*i, 0.1, 0.1, 0.1, -1.5708, 0, 0);
+         }
+     */
+
+        for(var i=0; i<13; i++)
         {
 
-            var rd = Math.random()*300+600;
-            loadMTLLoader('12265_Fish_v1_L2', rd+(2*i), rd-(2*i), rd*i, 3, 3, 3, -1.5708, 0, 0);
+            var rd = Math.random()*350-100;
+            var rx = Math.random()*700-300;
+            loadMTLLoader('12265_Fish_v1_L2', rd-(9*i), rx-(3*i), rd+(9*i), 8, 8, 8, -1.5708, 0, 0);
         }
 
-        for(var i=0; i<5; i++)
+        for(var i=0; i<13; i++)
         {
 
-            var rd = Math.random()*300+600;
-            loadMTLLoader('13103_pearlturtle_v1_l2', rd+(2*i), rd-(2*i), rd*i, 1, 1, 1, -1.5708, 0, 0);
+            var rd = Math.random()*320+10;
+            var rx = Math.random()*200-500;
+            loadMTLLoader('13103_pearlturtle_v1_l2', rd+(9*i), rx-(3*i), rd-(2*i), 4, 4, 4, -1.5708, 0, 0);
         }
-        for(var i=0; i<5; i++)
+        for(var i=0; i<8; i++)
         {
 
-            var rd = Math.random()*300+600;
-            loadMTLLoader('12960_Shark_v2_L1', rd+(2*i), rd-(2*i), rd*i, 0.1, 0.1, 0.1, -1.5708, 0, 0);
+            var rd = Math.random()*300-600;
+            var rx = Math.random()*500-150;
+            loadMTLLoader('12960_Shark_v2_L1', rd-(9*i), rx-(3*i), rd+(2*i), 0.5, 0.5, 0.5, -1.5708, 0, 0);
         }
 
-        for(var i=0; i<5; i++)
+        for(var i=0; i<8; i++)
         {
 
-            var rd = Math.random();
-            loadMTLLoader('TGRSHARK', rd+(2*i), rd-(2*i), rd*i, 0.2, 0.2, 0.2, -1.5708, 0, 0);
+            var rd = Math.random()*150+600;
+            loadMTLLoader('TGRSHARK', rd+(3*i), rx-(3*i), rd+(8*i), 0.4, 0.4, 0.4, -1.5708, 0, 0);
         }
 
 
         // sealion
-        for(var i=0; i<5; i++)
+        for(var i=0; i<8; i++)
         {
 
-            var rd = Math.random()*150+10;
-            loadMTLLoader('10041_sealion_v1_L3', rd+(100*i), rd-(100*i), rd*i, 0.5, 0.5, 0.5, -1.5708, 0, 0);
+            var rd = Math.random()*330+400;
+            var rx = Math.random()*400-5;
+            loadMTLLoader('10041_sealion_v1_L3', rd-(9*i), rx-(3*i), rd-(2*i), 0.7, 0.7, 0.7, -1.5708, 0, 0);
         }
 
         // chromis
-        for(var i=0; i<7; i++)
+        for(var i=0; i<15; i++)
         {
-            var rd = Math.random()*200+300;
-            loadMTLLoader('13007_Blue-Green_Reef_Chromis_v2_l3', rd+(3*i), rd-i, rd*i, 3, 3, 3, -1.5708, 0, 0);
+            var rd = Math.random()*300+320;
+            var rx = Math.random()*300-50;
+            loadMTLLoader('13007_Blue-Green_Reef_Chromis_v2_l3', rd+(9*i), rx-(3*i), rd-(2*i), 6, 6, 6, -1.5708, 0, 0);
         }
 
         // gold fish
-        for(var i=0; i<3; i++)
+        for(var i=0; i<15; i++)
         {
-            var rd = Math.random()*100+500;
-            loadMTLLoader('13001_Ryukin_Goldfish_v1_L3', rd+(8*i), rd-i, rd*i, 3, 3, 3,-1.5708, 0, 0);
+            var rd = Math.random()*130+200;
+            var rx = Math.random()*300-50;
+            loadMTLLoader('13001_Ryukin_Goldfish_v1_L3', rd+(9*i), rx-(4*i), rd-(9*i), 0.3, 0.3, 0.3,-1.5708, 0, 0);
         }
 
         // long fin fish
-        for(var i=0; i<3; i++)
+        for(var i=0; i<15; i++)
         {
-            var rd = Math.random()*200+100;
-            loadMTLLoader('12993_Long_Fin_White_Cloud_v1_l3', rd+(13*i), rd-i, rd*i, 3, 3, 3, -1.5708, 0, 0);
+            var rd = Math.random()*100-600;
+            var rx = Math.random()*300+5;
+            loadMTLLoader('12993_Long_Fin_White_Cloud_v1_l3', rd-(5*i), rx-(6*i), rd+(2*i), 5, 5, 5, -1.5708, 0, 0);
         }
 
         // whale
-        for(var i=0; i<3; i++)
+        for(var i=0; i<7; i++)
         {
-            var rd = Math.random()*90+150;
-            loadMTLLoader('10054_Whale_v2_L3', rd+(130*i), rd-(15*i), rd*i, 0.2, 0.2, 0.2, -1.5708, 0, 0);
+            var rd = Math.random()*190-700;
+            var rx = Math.random()*300+5;
+            loadMTLLoader('10054_Whale_v2_L3', rd-(6*i), rx-(4*i), rd+(9*i), 0.4, 0.4, 0.4, -1.5708, 0, 0);
         }
 
         loadMTLLoader('Patrick', -240, -1496, 3, 1, 1, 1, 0, 0.8, 0);
@@ -336,7 +358,8 @@
                 scene.add(group);
 
                 //Removing objects that are not moving.
-                if(str === 'downtownbikinibottom' || str === 'Patrick' || str === '/spongebob-obj/spongebob')
+                if(str === 'downtownbikinibottom' || str === 'Patrick' || str === '/spongebob-obj/spongebob'
+                    || str ==='10012_crab_v2_iterations-1')
                 {
                     group.remove(object);
                     scene.add(object);
