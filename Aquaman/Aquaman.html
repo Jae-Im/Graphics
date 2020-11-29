@@ -39,10 +39,8 @@
     let container, stats;
 
     let camera, controls, scene, renderer;
-    var obj1;
+    var obj1 = [];
     let mesh, texture;
-
-    // let object;
 
     let mtlLoader, loader;
 
@@ -65,11 +63,11 @@
         scene.background = new THREE.Color(0xbfd1e5);
 
 
-        camera.position.set(3, 3, 3);
+        camera.position.set(5, 5, 5);
 
-        let axes = new THREE.AxesHelper(10);
+        let axes = new THREE.AxesHelper(2500);
         scene.add(axes);
-        var geometry = new THREE.CylinderGeometry(1500, 1500, 20000, 32, 1, true)
+        var geometry = new THREE.CylinderGeometry(680, 680, 5000, 32, 1, true)
         var materialOuter = new THREE.MeshBasicMaterial({
             map: new THREE.TextureLoader().load("./resources/GlobeInner_DM.png")
         });
@@ -102,7 +100,7 @@
         container.appendChild(renderer.domElement);
 
         controls = new FirstPersonControls(camera, renderer.domElement);
-        controls.movementSpeed = 50;
+        controls.movementSpeed = 20;
         controls.lookSpeed = 0.1;
 
         stats = new Stats();
@@ -113,9 +111,13 @@
         window.addEventListener('resize', onWindowResize, false);
 
         addDirectionalLight();
-        loadMTLLoader('./spongebob-obj/spongebob', 1, 0, 0, 100, 100, 100, 0, 0, 0);
-        loadMTLLoader('downtownbikinibottom', 1, -50, 0, 1, 1, 1, 0, 0, 0);
-
+        loadMTLLoader('./spongebob-obj/spongebob', -180, -2500, 0, 20, 20, 20, 0, 0.5, 0);
+        loadMTLLoader('downtownbikinibottom', 1, -2500, 0, 1.5, 1.5, 1.5, 0, 0, 0);
+        for(var i=0; i<3; i++)
+        {
+            var rd = Math.random();
+            loadMTLLoader('/spongebob-obj/spongebob', rd+i, rd-i, rd*i, 10, 10, 10, 0, 0, 0);
+        }
         document.addEventListener('keyup', onKeyUp, false);
 
         function onKeyUp(event)
@@ -209,8 +211,13 @@
                 object.rotation.x = xr;
                 object.rotation.y = yr;
                 object.rotation.z = zr;
-                obj1 = object;
+                obj1.push(object);
                 scene.add(obj1);
+                let animation = function(){
+                    obj1.position.x += 0.01;
+                    requestAnimationFrame(animation);
+                }
+                // animation();
             }, function (xhr) {
                 // 모델이 로드되는 동안 호출되는 함수
                 console.log('OBJLoader: ', xhr.loaded / xhr.total * 100, '% loaded');
