@@ -37,7 +37,6 @@
     import {MTLLoader} from "../three.js-master/examples/jsm/loaders/MTLLoader.js";
 
     let container, stats;
-
     let camera, controls, scene, renderer;
     var obj1 = [];
     let mesh, texture;
@@ -63,11 +62,11 @@
         scene.background = new THREE.Color(0xbfd1e5);
 
 
-        camera.position.set(5, 5, 5);
+        camera.position.set(5, 1000, 5);
 
         let axes = new THREE.AxesHelper(2500);
         scene.add(axes);
-        var geometry = new THREE.CylinderGeometry(680, 680, 5000, 32, 1, true)
+        var geometry = new THREE.CylinderGeometry(680, 680, 3500, 32, 1, true)
         var materialOuter = new THREE.MeshBasicMaterial({
             map: new THREE.TextureLoader().load("./resources/sea_background.jpg")
         });
@@ -111,12 +110,11 @@
         window.addEventListener('resize', onWindowResize, false);
 
         addDirectionalLight();
-        loadMTLLoader('downtownbikinibottom', 1, -2500, 0, 1.5, 1.5, 1.5, 0, 0, 0);
-        loadMTLLoader('./spongebob-obj/spongebob', -180, -2500, 0, 20, 20, 20, 0, 0.5, 0);
-        for(var i=0; i<3; i++)
+        loadMTLLoader('downtownbikinibottom', 1, -1500, 0, 1.5, 1.5, 1.5, 0, 0, 0, 0);
+        for(i =1; i<4; i++)
         {
             var rd = Math.random();
-            loadMTLLoader('/spongebob-obj/spongebob', rd+i, rd-i, rd*i, 10, 10, 10, 0, 0, 0);
+            loadMTLLoader('/spongebob-obj/spongebob', rd+i, rd-i, rd*i, 10, 10, 10, 0, 0, 0, i);
         }
         document.addEventListener('keyup', onKeyUp, false);
 
@@ -124,6 +122,7 @@
         {
             if (event.key === 'c') {
                 let light4 = new THREE.DirectionalLight(0xffffff, 1);
+                light4.position.set(0, 1, 0);
                 scene.add(light4);
 
             }
@@ -151,7 +150,7 @@
          *
          * @method loadMTLLoader
          */
-        function loadMTLLoader(str, xp, yp, zp, xs, ys, zs, xr, yr, zr) {
+        function loadMTLLoader(str, xp, yp, zp, xs, ys, zs, xr, yr, zr, i) {
             mtlLoader = new MTLLoader();
 
             // MTLLoader Material 파일을 사용할 전역 경로를 설정합니다.
@@ -162,7 +161,7 @@
                 // 로드 완료되었을때 호출하는 함수
                 materials.preload();
 
-                loadOBJLoader(materials, str, xp, yp, zp, xs, ys, zs, xr, yr, zr);
+                loadOBJLoader(materials, str, xp, yp, zp, xs, ys, zs, xr, yr, zr, i);
             }, function (xhr) {
                 // 로드되는 동안 호출되는 함수
                 console.log('MTLLoader: ', xhr.loaded / xhr.total * 100, '% loaded');
@@ -172,7 +171,7 @@
                 alert('MTLLoader 로드 중 오류가 발생하였습니다.');
             });
         }
-
+        var axis = new THREE.Vector3(-30,30,-30).normalize();
 
         /**
          * .obj 파일의 모델을 로드하는 함수
@@ -189,10 +188,10 @@
          * @param xr
          * @param yr
          * @param zr
+         * @param i
          */
-        function loadOBJLoader(materials, str, xp, yp, zp, xs, ys, zs, xr, yr, zr) {
+        function loadOBJLoader(materials, str, xp, yp, zp, xs, ys, zs, xr, yr, zr, i) {
             loader = new OBJLoader();
-
             // MTLLoader에서 로드한 materials 파일을 설정합니다.
             loader.setMaterials(materials);
 
@@ -211,17 +210,9 @@
                 object.rotation.x = xr;
                 object.rotation.y = yr;
                 object.rotation.z = zr;
-                obj1.push(object);
+                obj1[i] = object;
                 scene.add(object);
-                let animation = function(){
-                    if(i !== 0) {
-                        obj1[i].position.x += 0.01;
-                        requestAnimationFrame(animation);
-                        render();
-                    }
-                }
-                i++;
-                // animation();
+
             }, function (xhr) {
                 // 모델이 로드되는 동안 호출되는 함수
                 console.log('OBJLoader: ', xhr.loaded / xhr.total * 100, '% loaded');
