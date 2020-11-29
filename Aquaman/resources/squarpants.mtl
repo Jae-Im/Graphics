@@ -1,0 +1,150 @@
+# Blender MTL File: 'krusty_krab_6.blend'
+# Material Count: 14
+
+newmtl Material
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.744089 0.325792 0.334308
+Ks 0.200000 0.200000 0.200000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl col_baju_spong
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.200000 0.200000 0.200000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl col_kaca
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.004727 0.420233 0.633038
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.500000
+illum 2
+
+newmtl col_master_pants_ptrc
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.537955 0.590328 0.012797
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+
+newmtl col_master_spongbob
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.026484
+Ks 0.200000 0.200000 0.200000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl col_sepatu_spong
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.002063 0.002063 0.002063
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl col_uv_background
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.200000 0.200000 0.200000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd E:\Save\Blender\Krusty_Krab\Texturizer\kisspng-patrick-star-image-cartoon-drawing-desktop-wallpap-Наклейки-пользователя-avatan-5b653c0e7194c8.7981442715333611664652.jpg
+
+newmtl col_uv_krusty
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.200000 0.200000 0.200000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd E:\\Save\\Blender\\Krusty_Krab\\Texturizer\\uv_krusty_krab_2.png
+
+newmtl col_uv_krusty_krab_2
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd E:\\Save\\Blender\\Krusty_Krab\\Texturizer\\uv_krusty_krab_3.png
+
+newmtl uv_patric
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.744089 0.325792 0.334308
+Ks 0.200000 0.200000 0.200000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd E:\\Save\\Blender\\Krusty_Krab\\Texturizer\\uv_face_patric_2.png
+
+newmtl uv_tanh_1
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd E:\Save\Blender\Krusty_Krab\Texturizer\kisspng-patrick-star-image-cartoon-drawing-desktop-wallpap-Наклейки-пользователя-avatan-5b653c0e7194c8.7981442715333611664652.jpg
+
+newmtl uv_tex_pants_patric
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd E:\\Save\\Blender\\Krusty_Krab\\Texturizer\\uv_pants_patric.png
+
+newmtl uv_tex_spongbob
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.026484
+Ks 0.200000 0.200000 0.200000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd E:\\Save\\Blender\\Krusty_Krab\\Texturizer\\uv_spongebob_2.png
+
+newmtl uv_tex_tanah_2
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 1
+map_Kd E:\Save\Blender\Krusty_Krab\Texturizer\kisspng-patrick-star-image-cartoon-drawing-desktop-wallpap-Наклейки-пользователя-avatan-5b653c0e7194c8.7981442715333611664652.jpg
